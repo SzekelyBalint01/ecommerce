@@ -23,7 +23,7 @@ public class Product {
 
     private String description;
 
-    private Boolean onStock;
+    private Boolean onstock;
 
     private String location;
 
@@ -32,14 +32,14 @@ public class Product {
     public Product() {
     }
 
-    public Product(int id, String name, int price, String type, String description, boolean onStock, String location, String image) {
+    public Product(int id, String name, int price, String type, String description, boolean onstock, String location, String image) {
 
         this.id = id;
         this.name = name;
         this.price = price;
         this.type = type;
         this.description = description;
-        this.onStock = onStock;
+        this.onstock = onstock;
         this.location = location;
         this.image = image;
     }
@@ -77,12 +77,12 @@ public class Product {
     public void setDescription(String description) {
         this.description = description;
     }
-    public boolean getOnStock() {
-        return onStock;
+    public boolean getOnstock() {
+        return onstock;
     }
 
-    public void setOnStock(boolean onStock) {
-        this.onStock = onStock;
+    public void setOnstock(boolean onstock) {
+        this.onstock = onstock;
     }
     public String getLocation() {
         return location;
@@ -110,7 +110,7 @@ public class Product {
         hash = 79 * hash + Objects.hashCode(this.image);
         hash = 79 * hash + Objects.hashCode(this.type);
         hash = 79 * hash + this.price;
-        hash = 79 * hash + this.onStock.hashCode();
+        hash = 79 * hash + this.onstock.hashCode();
         return hash;
     }
 

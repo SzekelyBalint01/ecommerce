@@ -80,6 +80,7 @@ public class User {
     public void setAge(int age) {
         this.age = age;
     }
+
     @Override
     public int hashCode() {
         int hash = 7;
@@ -115,7 +116,7 @@ public class User {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("City{");
+        final StringBuilder sb = new StringBuilder("User{");
         sb.append("id=").append(id);
         sb.append(", name='").append(name).append('\'');
         sb.append(", password=").append(password);

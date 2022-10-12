@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public abstract class ProductService implements IProductService {
+public class ProductService implements IProductService {
 
     @Autowired
     private ProductRepository repository;
@@ -21,5 +21,7 @@ public abstract class ProductService implements IProductService {
         return product;
     }
 
-    public abstract Optional<Product> findById(Long aLong);
+    public Optional<Product> findById(Long aLong){
+        return null;
+    };
 }

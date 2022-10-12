@@ -1,8 +1,10 @@
 package com.prog2.ecommerce.controller;
 
+import com.prog2.ecommerce.model.Product;
 import com.prog2.ecommerce.model.User;
 import com.prog2.ecommerce.service.IProductService;
 import com.prog2.ecommerce.service.IUserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,36 +16,33 @@ import java.util.List;
 public class MyController {
 
     @Autowired
-    private IUserService UserService;
+    private IUserService userService;
 
     @Autowired
-    private IProductService ProductService;
+   private IProductService productService;
 
     @GetMapping("/showUsers")
     public String findUsers(Model model) {
 
-       var users = (List<User>) UserService.findAll();
+       var users = (List<User>) userService.findAll();
 
         model.addAttribute("users", users);
 
         return "showUsers";
     }
     
-    @GetMapping("/home")
+   @GetMapping("/home")
     public String homePageContent(Model model) {
 
-        var product = ProductService.findAll();
+       List<Product> productList = productService.findAll();
 
-        model.addAttribute("product", product);
+       model.addAttribute("productList", productList);
 
-        return "home";
+       return "home";
     }
 
     @GetMapping("/login")
     public  Boolean loginVerification(){
-
-
-
         return true;
     }
 }
