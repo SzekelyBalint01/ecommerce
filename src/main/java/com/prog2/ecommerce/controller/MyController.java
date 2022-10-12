@@ -24,6 +24,17 @@ public class MyController {
 
         return "showUsers";
     }
+    @GetMapping("/home")
+    public String homePageContent(Model model) {
+
+        var product = (List<Product>) UserService.findAll();
+
+        model.addAttribute("users", users);
+
+        
+
+        return "home";
+    }
 
     @GetMapping("/login")
     public  Boolean loginVerification(){
