@@ -8,12 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public abstract class UserService implements IUserService {
+public class UserService{
 
     @Autowired
     private UserRepository repository;
 
-    @Override
     public List<User> findAll() {
 
         var users = (List<User>) repository.findAll();
@@ -21,5 +20,7 @@ public abstract class UserService implements IUserService {
         return users;
     }
 
-    public abstract Optional<User> findById(Long aLong);
+    public Optional<User> findById(Long aLong){
+        return repository.findById(aLong);
+    };
 }

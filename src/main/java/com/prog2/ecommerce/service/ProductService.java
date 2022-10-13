@@ -8,20 +8,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ProductService implements IProductService {
+public class ProductService{
 
     @Autowired
     private ProductRepository repository;
 
-    @Override
+    
     public List<Product> findAll() {
 
-        var product = (List<Product>)repository.findAll();
+        List<Product> product = repository.findAll();
 
         return product;
     }
 
-    public Optional<Product> findById(Long aLong){
-        return null;
+
+    public List<Product> findByKeyword(String keyword) {
+        List<Product> product = repository.findByKeyword(keyword);
+        return product;
+    }
+
+    public Optional<Product> findById(Long aLong) {
+        return Optional.empty();
     };
 }

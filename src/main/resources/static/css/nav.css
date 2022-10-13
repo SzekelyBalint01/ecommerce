@@ -10,7 +10,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    background: #f5f5f5;
+    background: #FDC059;
     z-index: 9;
 }
 
@@ -32,6 +32,7 @@
 .search{
     width: 500px;
     display: flex;
+    align-items: center;
 }
 
 .search-box{
@@ -42,7 +43,6 @@
     border-bottom-left-radius: 10px;
     border: 1px solid #d1d1d1;
     text-transform: capitalize;
-    background: none;
     color: #a9a9a9;
     outline: none;
 }
@@ -67,7 +67,7 @@
 }
 
 .nav-items a{
-    margin-left: 20px;
+    margin-left: 50px;
 }
 
 .nav-items a img{
