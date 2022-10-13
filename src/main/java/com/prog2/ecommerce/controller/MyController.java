@@ -1,6 +1,7 @@
 package com.prog2.ecommerce.controller;
 
 import com.prog2.ecommerce.model.Product;
+import com.prog2.ecommerce.model.SearchBar;
 import com.prog2.ecommerce.model.User;
 import com.prog2.ecommerce.service.IProductService;
 import com.prog2.ecommerce.service.IUserService;
@@ -9,6 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
@@ -44,5 +49,11 @@ public class MyController {
     @GetMapping("/login")
     public  Boolean loginVerification(){
         return true;
+    }
+
+    @RequestMapping(value = "/searchBarForm", method=RequestMethod.POST)
+    public String processForm(@ModelAttribute(value="bar") SearchBar bar) {
+  
+        return "processForm";
     }
 }

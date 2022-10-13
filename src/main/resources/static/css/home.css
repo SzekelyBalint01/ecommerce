@@ -27,9 +27,12 @@
 
 
 .product{
+  display: inline-flex;
   position: relative;
   overflow: hidden;
-  padding: 20px 0;
+  flex-wrap: wrap;
+  padding: 0 10% 0 10%;
+  justify-content: space-around;
 }
 
 .product-category{
@@ -76,9 +79,9 @@
 }
 
 .product-container{
-  padding: 0 10vw;
+  padding:0px;
   display: flex;
-  overflow-x: auto;
+  
   scroll-behavior: smooth;
 }
 
