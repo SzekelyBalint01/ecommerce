@@ -12,36 +12,25 @@
 <div class="loginPopup" style="z-index: -1; position: absolute;">
     <div class="container" id="container">
         <div class="form-container sign-up-container">
-            <form class="form" action="#">
+            <form class="form"  th:action="@{/creatUser}" method="post">
                 <h1 class="h1">Create Account</h1>
-                <div class="social-container">
-                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-                <span>or use your email for registration</span>
-                <input class="input" type="text" placeholder="Name" />
-                <input class="input" type="email" placeholder="Email" />
-                <input class="input" type="password" placeholder="Password" />
-                <button class="button">Sign Up</button>
+                <input class="input" type="text" name="name" th:value="${name}" placeholder="Name" />
+                <input class="input" type="email" name="email" th:value="${email}" />
+                <input class="input" type="password" name="password" th:value="${password}" placeholder="Password" />
+                <button type="submit" class="button">Sign Up</button>
             </form>
         </div>
         <div class="form-container sign-in-container">
-            <form class="form" action="#">
+            <form class="form" th:action="@{/login}" method="get">
                 <h1 class="h1">Sign in</h1>
-                <div class="social-container">
-                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-                <span>or use your account</span>
-                <input class="input" type="email" placeholder="Email" />
-                <input class="input" type="password" placeholder="Password" />
+                <input class="input" type="email" name="email" th:value="${email}" placeholder="Email" />
+                <input class="input" type="password" name="password" th:value="${password}" placeholder="Password" />
                 <a href="#">Forgot your password?</a>
-                <button class="button">Sign In</button>
+                <button type="submit" class="button">Sign In</button>
             </form>
         </div>
         <div class="overlay-container">
+            <div href="#"  class="x-button">X</div>
             <div class="overlay">
                 <div class="overlay-panel overlay-left">
                     <h1>Welcome Back!</h1>
@@ -49,6 +38,7 @@
                     <button class="ghost button" id="signIn">Sign In</button>
                 </div>
                 <div class="overlay-panel overlay-right">
+                   
                     <h1>Hello, Friend!</h1>
                     <p>Enter your personal details and start journey with us</p>
                     <button class="ghost button" id="signUp">Sign Up</button>

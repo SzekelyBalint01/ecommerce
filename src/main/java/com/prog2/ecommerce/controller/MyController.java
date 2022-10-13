@@ -3,6 +3,7 @@ package com.prog2.ecommerce.controller;
 import com.prog2.ecommerce.model.Product;
 import com.prog2.ecommerce.model.User;
 import com.prog2.ecommerce.service.ProductService;
+import com.prog2.ecommerce.service.UserRegistration;
 import com.prog2.ecommerce.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,9 @@ public class MyController {
 
     @Autowired
     private ProductService productService;
+
+    @Autowired
+    private UserRegistration userRegistration;
 
     @GetMapping("/showUsers")
     public String findUsers(Model model) {
@@ -52,5 +56,13 @@ public class MyController {
         model.addAttribute("productList", productList);
 
         return "searchResult";
+    }
+
+    @RequestMapping(path = { "/creatUser" })
+    public String creatUser(Model model, String name, String email, String password) {
+        
+        userRegistration.addNewUser(0, name, password, email, password);
+
+        return "home";
     }
 }

@@ -30,8 +30,8 @@ a {
 
 .button {
 	border-radius: 20px;
-	border: 1px solid #FF4B2B;
-	background-color: #FF4B2B;
+	border: 1px solid #AAC3BF;
+	background-color: #AAC3BF;
 	color: #FFFFFF;
 	font-size: 12px;
 	font-weight: bold;
@@ -39,6 +39,24 @@ a {
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	transition: transform 80ms ease-in;
+}
+.loginPopup{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.x-button{
+	border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    background-color: white;
+    padding: 12px;
+    position: absolute;
+    z-index: 1;
+    right: 10px;
+    top: 10px;
+    color: gray;
 }
 
 button:active {
@@ -145,8 +163,8 @@ button.ghost {
 
 .overlay {
 	background: #FF416C;
-	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-	background: linear-gradient(to right, #FF4B2B, #FF416C);
+	background: -webkit-linear-gradient(to right, #AAC3BF, #273B39);
+	background: linear-gradient(to right, #AAC3BF,#273B39);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
