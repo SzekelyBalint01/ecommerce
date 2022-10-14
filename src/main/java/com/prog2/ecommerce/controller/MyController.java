@@ -61,8 +61,30 @@ public class MyController {
     @RequestMapping(path = { "/creatUser" })
     public String creatUser(Model model, String name, String email, String password) {
         
-        userRegistration.addNewUser(0, name, password, email, password);
+        //if true, than the email not exsist yet.
+        if(userRegistration.emailCheck(email)==true){
 
-        return "home";
+            var users = (List<User>) userService.findAll();
+            int lenght = users.size();
+            userRegistration.addNewUser(lenght+1, name, password, email, password);
+
+            return "home";
+        }
+
+        return "404";
+    }
+
+    @RequestMapping(path = { "/login" })
+    public String loginUser(Model model,String email, String password) {
+        
+       if (userService.loginCheck(email, password)!=null) {
+
+            User user = userService.loginCheck(email, password);
+            model.addAttribute("productList", user);
+
+            return "loggedHome";
+       }
+
+        return "404";
     }
 }

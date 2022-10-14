@@ -15,10 +15,30 @@ public class UserService{
 
     public List<User> findAll() {
 
-        var users = (List<User>) repository.findAll();
-
+        List<User> users = repository.findAll();
         return users;
     }
+
+   
+
+    public User loginCheck(String email, String password){
+        
+        for (int i = 0; i < findAll().size(); i++) {
+            
+            String tempEmail = findAll().get(i).getEmail();
+            String tempPassword = findAll().get(i).getPassword();
+            Long id ;
+            if (tempEmail.equals(email) && tempPassword.equals(password)) {
+            
+             
+
+           // return user;
+           }
+        }
+       
+      return null;
+    }
+
 
     public Optional<User> findById(Long aLong){
         return repository.findById(aLong);
