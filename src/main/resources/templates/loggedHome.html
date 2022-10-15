@@ -18,8 +18,8 @@
                 size="40">
             <button class="search-btn" type="submit">Search</button>
         </form>
-        <div class="nav-items">
-            <a href="#"></a>
+        <div class="nav-items"  th:each="user: ${acceptedUser}">
+            <a href="#"  th:text="${user.name}"></a>
             <a href="#"><img src="img/cart.png" alt=""></a>
         </div>
     </div>

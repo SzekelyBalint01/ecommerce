@@ -15,13 +15,13 @@
             <form class="form"  th:action="@{/creatUser}" method="post">
                 <h1 class="h1">Create Account</h1>
                 <input class="input" type="text" name="name" th:value="${name}" placeholder="Name" />
-                <input class="input" type="email" name="email" th:value="${email}" />
+                <input class="input" type="email" name="email" th:value="${email}"  placeholder="Email" />
                 <input class="input" type="password" name="password" th:value="${password}" placeholder="Password" />
                 <button type="submit" class="button">Sign Up</button>
             </form>
         </div>
         <div class="form-container sign-in-container">
-            <form class="form" th:action="@{/login}" method="post">
+            <form class="form" th:action="@{/loggedHome}" method="post">
                 <h1 class="h1">Sign in</h1>
                 <input class="input" type="email" name="email" th:value="${email}" placeholder="Email" />
                 <input class="input" type="password" name="password" th:value="${password}" placeholder="Password" />

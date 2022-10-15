@@ -74,17 +74,17 @@ public class MyController {
         return "404";
     }
 
-    @RequestMapping(path = { "/login" })
+    @RequestMapping(path = { "/loggedHome" })
     public String loginUser(Model model,String email, String password) {
         
-       if (userService.loginCheck(email, password)!=null) {
+        if (userService.loginCheck(email, password)!=null){ 
 
+            List<Product> productList = productService.findAll();
+            model.addAttribute("productList", productList);
             User user = userService.loginCheck(email, password);
-            model.addAttribute("productList", user);
-
+            model.addAttribute("acceptedUser", user);
             return "loggedHome";
-       }
-
+        }
         return "404";
     }
 }

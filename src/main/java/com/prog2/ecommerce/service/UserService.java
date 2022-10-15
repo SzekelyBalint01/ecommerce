@@ -27,12 +27,15 @@ public class UserService{
             
             String tempEmail = findAll().get(i).getEmail();
             String tempPassword = findAll().get(i).getPassword();
-            Long id ;
+            int id = findAll().get(i).getId(); ;
             if (tempEmail.equals(email) && tempPassword.equals(password)) {
-            
-             
-
-           // return user;
+                
+                for (int j = 0; j < findAll().size(); j++) {
+                    if (findAll().get(j).getId()==id) {
+                        
+                     return findAll().get(i);
+                    }
+                }
            }
         }
        
