@@ -1,9 +1,13 @@
 @import 'nav.css';
 @import 'footer.css';
+@import 'loginForm.css';
+body{
+  background-color: #AAC3BF;
+}
 .hero-section{
     width: 100%;
-    height: calc(100vh - 120px);
-    background-image: url('../img/header.png');
+    height: 100vh;
+    background-image: url('../img/header-car.jpg');
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -25,13 +29,20 @@
     font-weight: 300;
 }
 
-
 .product{
+<<<<<<< HEAD
   display: inline-flex;
   position: relative;
   overflow: hidden;
   flex-wrap: wrap;
   padding: 0 10% 0 10%;
+=======
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  overflow: hidden;
+  padding: 20px 10% 20px 10%;
+>>>>>>> 3412d58455c6712a9e4b43aa3e697eeccbb5da81
   justify-content: space-around;
 }
 
@@ -41,6 +52,8 @@
   font-weight: 500;
   margin-bottom: 40px;
   text-transform: capitalize;
+  border-top: 4px solid black;
+  padding-top: 50px;
 }
 
 .collection-container{
@@ -52,11 +65,13 @@
 
 .collection{
   position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .collection img{
  position:relative;
-  width: 75%;
   height: 50%;
   object-fit: cover;
   border-radius:50%;
@@ -79,10 +94,15 @@
 }
 
 .product-container{
+<<<<<<< HEAD
   padding:0px;
   display: flex;
   
   scroll-behavior: smooth;
+=======
+  display: flex;
+  padding: 20px 20px 20px 20px;
+>>>>>>> 3412d58455c6712a9e4b43aa3e697eeccbb5da81
 }
 
 .product-container::-webkit-scrollbar{
@@ -92,8 +112,8 @@
 .product-card{
   flex: 0 0 auto;
   width: 250px;
-  height: 450px;
-  margin-right: 40px;
+  background-color: #E6B674;
+  border-radius: 10px; 
 }
 
 .product-image{
@@ -101,23 +121,14 @@
   width: 100%;
   height: 350px;
   overflow: hidden;
+  border-radius: 10px 10px 0px 0px;
 }
+
 
 .product-thumb{
   width: 100%;
   height: 350px;
   object-fit: cover;
-}
-
-.discount-tag{
-  position: absolute;
-  background: #fff;
-  padding: 5px;
-  border-radius: 5px;
-  color: #ff7d7d;
-  right: 10px;
-  top: 10px;
-  text-transform: capitalize;
 }
 
 .card-btn{
@@ -147,7 +158,6 @@
 
 .product-info{
   width: 100%;
-  height: 100px;
   padding-top: 10px;
 }
 

@@ -8,18 +8,16 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "user_db")
+@Table(name = "users")
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String name;
 
     private String password;
-
-    private int age;
 
     private String email;
 
@@ -28,11 +26,11 @@ public class User {
     public User() {
     }
 
-    public User(int id, String name, int age, String password, String email, String address ) {
+    
+    public User(int id, String name, String password, String email, String address) {
 
         this.id = id;
         this.name = name;
-        this.age = age;
         this.password = password;
         this.email = email;
         this.address = address;
@@ -73,13 +71,7 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
+   
 
     @Override
     public int hashCode() {
@@ -89,7 +81,6 @@ public class User {
         hash = 79 * hash + Objects.hashCode(this.password);
         hash = 79 * hash + Objects.hashCode(this.address);
         hash = 79 * hash + Objects.hashCode(this.email);
-        hash = 79 * hash + this.age;
         return hash;
     }
 

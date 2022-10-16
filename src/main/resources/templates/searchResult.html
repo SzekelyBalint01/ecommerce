@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/home.css">
+</head>
+<nav class="navbar">
+    <div class="nav">
+        <img src="/img/dark-logo.png" class="brand-logo" alt="">
+        <form class="search" th:action="@{/search}" method="get">
+            <input class="search-box" type="text" name="keyword" th:value="${keyword}" placeholder="Search Car" size="40">
+            <button class="search-btn" type="submit">Search</button>
+        </form>
+        <div class="nav-items">
+            <a href="#"><img src="img/user.png" alt=""></a>
+            <a href="#"><img src="img/cart.png" alt=""></a>
+        </div>
+    </div>
+</nav>
+
+
+<body>
+    <section class="product">
+        <div class="product-container" th:each="prod: ${productList}">
+            <div class="product-card">
+                <div class="product-image">
+                    <img  th:src="@{${prod.image}}" class="product-thumb" alt="">
+                    <button class="card-btn">add to car</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand" th:text="${prod.name}">default car name</h2>
+                    <h3 th:text="${prod.type}"></h3>
+                    <p class="product-short-des">Click here for more info</p>
+                    <span class="price" th:text="${prod.price}"></span><span>$</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<footer></footer>
+<script src="../js/footer.js"></script>
+<script src="../js/home.js"></script>
+</html>

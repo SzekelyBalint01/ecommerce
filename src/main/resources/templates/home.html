@@ -1,23 +1,77 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"></html>
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/home.css">
 </head>
-<nav class="navbar"></nav>
-    <!-- hero section -->
+
+<div class="loginPopup" style="z-index: -1; position: absolute;">
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form class="form"  th:action="@{/creatUser}" method="post">
+                <h1 class="h1">Create Account</h1>
+                <input class="input" type="text" name="name" th:value="${name}" placeholder="Name" />
+                <input class="input" type="email" name="email" th:value="${email}"  placeholder="Email" />
+                <input class="input" type="password" name="password" th:value="${password}" placeholder="Password" />
+                <button type="submit" class="button">Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form class="form" th:action="@{/loggedHome}" method="post">
+                <h1 class="h1">Sign in</h1>
+                <input class="input" type="email" name="email" th:value="${email}" placeholder="Email" />
+                <input class="input" type="password" name="password" th:value="${password}" placeholder="Password" />
+                <a href="#">Forgot your password?</a>
+                <button type="submit" class="button">Sign In</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div href="#"  class="x-button">X</div>
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="ghost button" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                   
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start journey with us</p>
+                    <button class="ghost button" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<nav class="navbar">
+    <div class="nav">
+        <img src="/img/dark-logo.png" class="brand-logo" alt="">
+        <form class="search" th:action="@{/search}" method="get">
+            <input class="search-box" type="text" name="keyword" th:value="${keyword}" placeholder="Search Car"
+                size="40">
+            <button class="search-btn" type="submit">Search</button>
+        </form>
+        <div class="nav-items">
+            <a href="#"  onclick="callLoginTemplate()"><img src="img/user.png" alt=""></a>
+            <a href="#"><img src="img/cart.png" alt=""></a>
+        </div>
+    </div>
+</nav>
+<!-- hero section -->
 <header class="hero-section">
     <div class="content">
-        <img src="img/light-logo.png" class="logo" alt="">
-        <p class="sub-heading">best fashion collection of all time</p>
+        <h1 style="color:white; text-align:center;">Car Land</h1>
+        <p class="sub-heading">best car collection of all time</p>
     </div>
 </header>
 
 <body>
+<<<<<<< HEAD
 <!-- collections -->
 <section class="collection-container">
     <a href="#" class="collection">
@@ -54,7 +108,42 @@
 </body>
 <footer>
 </footer>
+=======
+    </section>
+    <!-- collections -->
+    <section class="collection-container">
+        <a href="#" class="collection">
+            <img src="../img/auction-logo.jpg" alt="">
+        </a>
+        <a href="#" class="collection">
+            <img src="../img/car-shop.jpg" alt="">
+            <p class="collection-title">Auction <br> apparels</p>
+        </a>
+    </section>
+    <h2 class="product-category">Best Cars</h2>
+    <section class="product">
+        <div class="product-container" th:each="prod: ${productList}">
+            <div class="product-card">
+                <div class="product-image">
+                    <img th:src="@{${prod.image}}" class="product-thumb" alt="">
+                    <button class="card-btn">add to car</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand" th:text="${prod.name}">default car name</h2>
+                    <h3 th:text="${prod.type}"></h3>
+                    <p class="product-short-des">Click here for more info</p>
+                    <span class="price" th:text="${prod.price}"></span><span>$</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<footer></footer>
+>>>>>>> 3412d58455c6712a9e4b43aa3e697eeccbb5da81
 <script src="../js/footer.js"></script>
-<script src="../js/nav.js"></script>
 <script src="../js/home.js"></script>
+<<<<<<< HEAD
+=======
+<script src="../js/loginPopup.js"></script>
+>>>>>>> 3412d58455c6712a9e4b43aa3e697eeccbb5da81
 </html>
