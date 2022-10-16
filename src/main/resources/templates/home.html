@@ -71,44 +71,6 @@
 </header>
 
 <body>
-<<<<<<< HEAD
-<!-- collections -->
-<section class="collection-container">
-    <a href="#" class="collection">
-        <img src="../img/women-collection.png" alt="">
-        <p class="collection-title">women <br> apparels</p>
-    </a>
-    <a href="#" class="collection">
-        <img src="../img/men-collection.png" alt="">
-        <p class="collection-title">men <br> apparels</p>
-    </a>
-</section>
-
-<h2 class="product-category">best selling</h2>
-<section class="product">
-    <div class="product-container" th:each="prod: ${productList}">
-        <div class="product-card">
-            <div class="product-image">
-                <img th:src="@{${prod.image}}" class="product-thumb" alt="img not found">
-                <button class="card-btn">add to car</button>
-            </div>
-            <div class="product-info">
-                <h2 class="product-brand" th:text="${prod.name}">Name</h2>
-                <h3 class="product-type" th:text="${prod.type}">Name</h3>
-                <p class="product-short-des">More info...</p>
-                <div class="price-container">
-                    <span class="price" th:text="${prod.price}">$$$</span>
-                    <span>$</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-</body>
-<footer>
-</footer>
-=======
     </section>
     <!-- collections -->
     <section class="collection-container">
@@ -139,11 +101,7 @@
     </section>
 </body>
 <footer></footer>
->>>>>>> 3412d58455c6712a9e4b43aa3e697eeccbb5da81
 <script src="../js/footer.js"></script>
 <script src="../js/home.js"></script>
-<<<<<<< HEAD
-=======
 <script src="../js/loginPopup.js"></script>
->>>>>>> 3412d58455c6712a9e4b43aa3e697eeccbb5da81
 </html>

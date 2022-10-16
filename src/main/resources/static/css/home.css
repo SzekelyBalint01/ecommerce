@@ -30,19 +30,11 @@ body{
 }
 
 .product{
-<<<<<<< HEAD
-  display: inline-flex;
-  position: relative;
-  overflow: hidden;
-  flex-wrap: wrap;
-  padding: 0 10% 0 10%;
-=======
   display: flex;
   flex-wrap: wrap;
   position: relative;
   overflow: hidden;
   padding: 20px 10% 20px 10%;
->>>>>>> 3412d58455c6712a9e4b43aa3e697eeccbb5da81
   justify-content: space-around;
 }
 
@@ -94,15 +86,8 @@ body{
 }
 
 .product-container{
-<<<<<<< HEAD
-  padding:0px;
-  display: flex;
-  
-  scroll-behavior: smooth;
-=======
   display: flex;
   padding: 20px 20px 20px 20px;
->>>>>>> 3412d58455c6712a9e4b43aa3e697eeccbb5da81
 }
 
 .product-container::-webkit-scrollbar{

@@ -50,7 +50,7 @@
             <div class="product-card">
                 <div class="product-image">
                     <img th:src="@{${prod.image}}" class="product-thumb" alt="">
-                    <button class="card-btn">add to car</button>
+                    <button class="card-btn" th:data-id="${prod.id}" th:onclick="addToCart(this.getAttribute('data-id'))">add to car</button>
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand" th:text="${prod.name}">default car name</h2>
@@ -66,4 +66,5 @@
 <script src="../js/footer.js"></script>
 <script src="../js/home.js"></script>
 <script src="../js/loginPopup.js"></script>
+<script src="../js/cart.js"></script>
 </html>

@@ -1,7 +1,6 @@
 package com.prog2.ecommerce.controller;
 
 import com.prog2.ecommerce.model.Product;
-import com.prog2.ecommerce.model.SearchBar;
 import com.prog2.ecommerce.model.User;
 import com.prog2.ecommerce.service.ProductService;
 import com.prog2.ecommerce.service.UserRegistration;
@@ -10,14 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-<<<<<<< HEAD
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-=======
-import org.springframework.web.bind.annotation.RequestMapping;
->>>>>>> 3412d58455c6712a9e4b43aa3e697eeccbb5da81
 
 import java.util.List;
 
@@ -58,12 +50,6 @@ public class MyController {
         return true;
     }
 
-<<<<<<< HEAD
-    @RequestMapping(value = "/searchBarForm", method=RequestMethod.POST)
-    public String processForm(@ModelAttribute(value="bar") SearchBar bar) {
-  
-        return "processForm";
-=======
     @RequestMapping(path = { "/search" })
     public String searchResult(Model model, String keyword) {
         List<Product> productList = productService.findByKeyword(keyword);
@@ -100,6 +86,5 @@ public class MyController {
             return "loggedHome";
         }
         return "404";
->>>>>>> 3412d58455c6712a9e4b43aa3e697eeccbb5da81
     }
 }
