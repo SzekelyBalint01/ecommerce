@@ -8,18 +8,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ProductService{
+public class ProductService {
 
     @Autowired
     private ProductRepository repository;
 
-    
     public List<Product> findAll() {
 
         List<Product> product = repository.findAll();
         return product;
     }
-
 
     public List<Product> findByKeyword(String keyword) {
         List<Product> product = repository.findByKeyword(keyword);
