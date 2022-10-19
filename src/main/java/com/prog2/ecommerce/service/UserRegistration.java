@@ -10,30 +10,35 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserRegistration{
+public class UserRegistration {
 
     @Autowired
     private UserRepository repository;
-    
-    public void addNewUser(int id, String name, String password, String email, String address) {
-        
-        User newUser = new User(id, name, password, email, address);
+
+    public void addNewUser(String name, String password, String email) {
+
+        User newUser = User.builder()
+                .password(password)
+                .email(email)
+                .name(name)
+                .build();
+
         newUser = repository.save(newUser);
 
     }
 
-    public Boolean emailCheck(String email){
+    public Boolean emailCheck(String email) {
 
         List<User> emailExistCheck = repository.findByEmail(email);
 
-        if(emailExistCheck.isEmpty()==true){
+        if (emailExistCheck.isEmpty() == true) {
             return true;
         }
 
         return false;
     }
 
-    public Optional<User> findById(Long aLong) {
+    public Optional<User> findById(Integer aLong) {
         return Optional.empty();
     };
 }

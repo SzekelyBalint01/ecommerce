@@ -1,10 +1,12 @@
 package com.prog2.ecommerce.model;
 
+import java.util.List;
 import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -13,10 +15,10 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Integer id;
 
     private String name;
-    
+
     private int price;
 
     private String type;
@@ -29,10 +31,15 @@ public class Product {
 
     private String image;
 
+    @OneToMany(mappedBy = "product")
+    private List<Cart> cart;
+
     public Product() {
     }
 
-    public Product(int id, String name, int price, String type, String description, boolean onstock, String location, String image) {
+    public Product(Integer id, String name, int price, String type, String description, boolean onstock,
+            String location,
+            String image) {
 
         this.id = id;
         this.name = name;
@@ -44,7 +51,7 @@ public class Product {
         this.image = image;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -63,6 +70,7 @@ public class Product {
     public void setPrice(int price) {
         this.price = price;
     }
+
     public String getType() {
         return type;
     }
@@ -70,6 +78,7 @@ public class Product {
     public void setType(String type) {
         this.type = type;
     }
+
     public String getDescription() {
         return description;
     }
@@ -77,6 +86,7 @@ public class Product {
     public void setDescription(String description) {
         this.description = description;
     }
+
     public boolean getOnstock() {
         return onstock;
     }
@@ -84,6 +94,7 @@ public class Product {
     public void setOnstock(boolean onstock) {
         this.onstock = onstock;
     }
+
     public String getLocation() {
         return location;
     }
@@ -91,6 +102,7 @@ public class Product {
     public void setLocation(String location) {
         this.location = location;
     }
+
     public String getImage() {
         return image;
     }
@@ -98,7 +110,6 @@ public class Product {
     public void setImage(String image) {
         this.image = image;
     }
-
 
     @Override
     public int hashCode() {
@@ -135,5 +146,4 @@ public class Product {
         return Objects.equals(this.id, other.id);
     }
 
-    
 }

@@ -1,19 +1,24 @@
 package com.prog2.ecommerce.model;
 
+import java.util.List;
 import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import lombok.Builder;
 
 @Entity
 @Table(name = "users")
+@Builder
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     private String name;
 
@@ -23,20 +28,23 @@ public class User {
 
     private String address;
 
+    @OneToMany(mappedBy = "user")
+    private List<Cart> cart;
+
     public User() {
     }
 
-    
-    public User(int id, String name, String password, String email, String address) {
+    public User(Integer id, String name, String password, String email, String address, List<Cart> cart) {
 
         this.id = id;
         this.name = name;
         this.password = password;
         this.email = email;
         this.address = address;
+        this.cart = cart;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -57,7 +65,7 @@ public class User {
     }
 
     public String getAddress() {
-            return address;
+        return address;
     }
 
     public void setAddress(String address) {
@@ -65,13 +73,20 @@ public class User {
     }
 
     public String getPassword() {
-            return password;
+        return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
     }
-   
+
+    public List<Cart> getCart() {
+        return cart;
+    }
+
+    public void setCart(List<Cart> cart) {
+        this.cart = cart;
+    }
 
     @Override
     public int hashCode() {
@@ -103,15 +118,5 @@ public class User {
             return false;
         }
         return Objects.equals(this.id, other.id);
-    }
-
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("User{");
-        sb.append("id=").append(id);
-        sb.append(", name='").append(name).append('\'');
-        sb.append(", password=").append(password);
-        sb.append('}');
-        return sb.toString();
     }
 }

@@ -21,6 +21,9 @@
         <div class="nav-items"  th:each="user: ${acceptedUser}">
             <a href="#"  th:text="${user.name}"></a>
             <a href="#"><img src="img/cart.png" alt=""></a>
+            <div  th:each="cartNum: ${numberOfProductInCart}">    
+                <a href="#" th:text="${cartNum.cart}"></a>
+            </div>
         </div>
     </div>
 </nav>
@@ -47,8 +50,9 @@
     <section class="product">
         <div class="product-container" th:each="prod: ${productList}">
             <div class="product-card">
-                <form id="cartFrom" class="product-image" method="post">
+                <form class="product-image" th:action="@{/addToCart}" method="post">
                     <img th:src="@{${prod.image}}" class="product-thumb" alt="">
+                    <input class="input" type="text" name="prodId" th:value="${prod.id}" style="display:none;"/>
                     <button class="card-btn" type="submit">add to car</button>
                 </form>
                 <div class="product-info">
@@ -62,7 +66,6 @@
     </section>
 </body>
 <footer></footer>
-<script src="../js/Connect.js"></script>
 <script src="../js/footer.js"></script>
 <script src="../js/home.js"></script>
 <script src="../js/loginPopup.js"></script>

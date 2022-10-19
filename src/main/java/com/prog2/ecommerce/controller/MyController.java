@@ -2,27 +2,25 @@ package com.prog2.ecommerce.controller;
 
 import com.prog2.ecommerce.model.Product;
 import com.prog2.ecommerce.model.User;
-import com.prog2.ecommerce.service.AddToCartService;
 import com.prog2.ecommerce.service.ProductService;
 import com.prog2.ecommerce.service.UserRegistration;
 import com.prog2.ecommerce.service.UserService;
-import com.prog2.ecommerce.controller.dto.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @Controller
 public class MyController {
+
+    @Getter
+    @Setter
+    private Integer userId;
 
     @Autowired
     private UserService userService;
@@ -71,11 +69,7 @@ public class MyController {
 
         // if true, than the email not exsist yet.
         if (userRegistration.emailCheck(email) == true) {
-
-            var users = (List<User>) userService.findAll();
-            int lenght = users.size();
-            userRegistration.addNewUser(lenght + 1, name, password, email, password);
-
+            userRegistration.addNewUser(name, password, email);
             return "home";
         }
 
@@ -91,33 +85,18 @@ public class MyController {
             model.addAttribute("productList", productList);
             User user = userService.loginCheck(email, password);
             model.addAttribute("acceptedUser", user);
+            setUserId(user.getId());
             return "loggedHome";
         }
         return "404";
     }
-}
 
-@RestController
-@RequestMapping("/addToCartPost")
-class UserController {
+    @RequestMapping(path = { "/addToCart" })
+    public String addToCart(Model model, Integer prodId) {
 
-    @Autowired
-    private AddToCartService addToCartService;
+        productService.addProductId(prodId, getUserId());
 
-    @PostMapping(produces = "application/json", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-    public ResponseEntity<CartResponse> search(@RequestBody MultiValueMap<String, String> formData) {
-
-        int userId = Integer.parseInt(formData.getFirst("userId"));
-
-        int productId = Integer.parseInt(formData.getFirst("productId"));
-
-        addToCartService.addProductId(productId, userId);
-
-        CartResponse es = new CartResponse();
-
-        // es.setadded(CartResponse.main(userId, productId));
-
-        return ResponseEntity.ok(es);
-
+        model.addAttribute("numberOfProductInCart");
+        return "loggedHome";
     }
 }
